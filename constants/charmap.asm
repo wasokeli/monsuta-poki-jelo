@@ -177,19 +177,18 @@
 	charmap ".",         $e8
 
 	charmap "ァ",         $e9 ; katakana small a, unused
-	charmap "ゥ",         $ea ; katakana small u, unused
-	charmap "ェ",         $eb ; katakana small e, unused
 
-	charmap "▷",         $ec
-	charmap "▶",         $ed
+	charmap ",",         $ed
+	charmap "♀",         $ee
 	charmap "♂",         $ef
+	; SPEx: Rearranged characters so the last row is the 'permanent' set.
+	; (That is, the stuff we can't just ditch at will.)
 	charmap "¥",         $f0
 	charmap "×",         $f1
 	charmap "<DOT>",     $f2 ; decimal point; same as "." in English
 	charmap "/",         $f3
-	charmap ",",         $f4
-	charmap "♀",         $f5
-
+	charmap "▷",         $f4
+	charmap "▶",         $f5
 	charmap "0",         $f6
 	charmap "1",         $f7
 	charmap "2",         $f8
