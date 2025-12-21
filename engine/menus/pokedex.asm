@@ -13,6 +13,8 @@ ShowPokedexMenu:
 	ldh [hJoy7], a
 .setUpGraphics
 	callfar LoadPokedexTilePatterns
+	; SPEx: This is a separate call now because we don't want to overwrite the down arrow in the Data display.
+	callfar LoadPokedexTilePokeball
 .loop
 	ld b, SET_PAL_GENERIC
 	call RunPaletteCommand
@@ -151,6 +153,8 @@ ENDC
 	jr .exitSideMenu
 
 .choseData
+	; SPEx: Unload the Pokeball; replace with down arrow.
+	callfar UnloadPokedexTilePokeball
 	call ShowPokedexDataInternal
 	ld b, 0
 	jr .exitSideMenu
@@ -390,7 +394,7 @@ Pokedex_PlacePokemonList:
 	pop hl
 	ld a, ' '
 	jr z, .writeTile
-	ld a, $72 ; pokeball tile
+	ld a, '▼' ; pokeball tile
 .writeTile
 	ld [hl], a ; put a pokeball next to pokemon that the player has owned
 	push hl
@@ -441,8 +445,10 @@ ShowPokedexData:
 	call ClearScreen
 	call UpdateSprites
 	callfar LoadPokedexTilePatterns ; load pokedex tiles
+	; SPEx: Note we do *not* load the Pokeball.
 
 ; function to display pokedex data from inside the pokedex
+; be sure to appropriately call UnloadPokedexTilePokeball
 ShowPokedexDataInternal:
 	ld hl, wStatusFlags2
 	set BIT_NO_AUDIO_FADE_OUT, [hl]
