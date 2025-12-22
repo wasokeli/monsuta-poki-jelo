@@ -404,7 +404,8 @@ hFieldMoveMonMenuTopMenuItemX:: db
 
 hPikachuSpriteVRAMOffset:: db
 
-	ds 1
+; SPEx: The font tile to translate is recorded here.
+hSPExTileTranslation:: db
 
 ; 0 if DMG, != 0 if CGB
 hOnCGB:: db

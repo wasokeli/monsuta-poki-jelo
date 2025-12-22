@@ -246,6 +246,8 @@ VRAM $0
 	"VRAM"
 SRAM $0
 	"Sprite Buffers"
+	ALIGN 8
+	"SPEx Font Table"
 SRAM $1
 	"Save Data"
 SRAM $2

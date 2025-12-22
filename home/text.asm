@@ -104,6 +104,17 @@ PlaceNextChar::
 	dict '<TARGET>',  PlaceMoveTargetsName
 	dict '<USER>',    PlaceMoveUsersName
 
+	; SPEx: Character remap
+	push hl
+	push bc
+	push de
+	ldh [hSPExTileTranslation], a
+	farcall SPExFontTranslate
+	ldh a, [hSPExTileTranslation]
+	pop de
+	pop bc
+	pop hl
+	; ---
 	ld [hli], a
 	call PrintLetterDelay
 

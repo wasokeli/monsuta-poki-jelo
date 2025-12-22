@@ -1,12 +1,13 @@
 ; SPEx: The font megasheet
+SPExDynFontMegasheet::
 INCBIN "gfx/font/font.1bpp", $00 * $08, $60 * $08
 TextBoxGraphics::
 INCBIN "gfx/font/font.1bpp", $60 * $08, $20 * $08
 TextBoxGraphicsEnd::
-FontGraphics::
 INCBIN "gfx/font/font.1bpp", $80 * $08, (FONT_COMMON_TILE_START - $80) * $08
+FontCommonGraphics::
 INCBIN "gfx/font/font.1bpp", FONT_COMMON_TILE_START * $08, ($100 - FONT_COMMON_TILE_START) * $08
-FontGraphicsEnd::
+FontCommonGraphicsEnd::
 
 ABTiles: INCBIN "gfx/font/AB.2bpp"
 

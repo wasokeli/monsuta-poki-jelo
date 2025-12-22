@@ -73,27 +73,24 @@ DrawBadges:
 	jr nz, .SkipName
 
 	push af
-	; SPEx: Revised gym leader name print routine.
-	; Either way, we have to advance manually.
-	; We assume GymLeaderNames is in a single 256-byte page.
-	; We then lookup the two name chars and place in A,B.
-	; Then we write them... and done!
-	push hl
-	ld hl, .GymLeaderNames
-	add a, l
-	ld l, a
-	ld a, [hli]
-	ld b, [hl]
-	pop hl
-	ld [hli], a
-	ld [hl], b
+	push bc
+	push de
+	; SPEx: Revised-revised gym leader name print routine.
+	ld de, .GymLeaderNames
+	add a, e
+	ld e, a
+	call PlaceString
+	pop de
+	pop bc
 	pop af
 
-	jr .NoSkipName
-.SkipName
-	inc hl
+	; jr .NoSkipName
 .NoSkipName
 
+.SkipName
+	inc hl
+
+	inc a
 	inc a
 	inc a
 
@@ -138,23 +135,23 @@ DrawBadges:
 ; Due to size constraints, we kind of just have to hope we don't have a page boundary in here.
 .GymLeaderNames
 IF DEF(_DEBUG)
-	db "G0"
-	db "G1"
-	db "G2"
-	db "G3"
-	db "G4"
-	db "G5"
-	db "G6"
-	db "G7"
+	db "G0@"
+	db "G1@"
+	db "G2@"
+	db "G3@"
+	db "G4@"
+	db "G5@"
+	db "G6@"
+	db "G7@"
 ELSE
-	db "  "
-	db "  "
-	db "  "
-	db "  "
-	db "  "
-	db "  "
-	db "  "
-	db "  "
+	db "  @"
+	db "  @"
+	db "  @"
+	db "  @"
+	db "  @"
+	db "  @"
+	db "  @"
+	db "  @"
 ENDC
 
 GymLeaderFaceAndBadgeTileGraphics:

@@ -1,18 +1,6 @@
+; SPEx: LoadFontTilePatterns now resets SPEx and only loads the 'common region'.
 LoadFontTilePatterns::
-	ldh a, [rLCDC]
-	bit B_LCDC_ENABLE, a
-	jr nz, .on
-.off
-	ld hl, FontGraphics
-	ld de, vFont
-	ld bc, FontGraphicsEnd - FontGraphics
-	ld a, BANK(FontGraphics)
-	jp FarCopyDataDouble ; if LCD is off, transfer all at once
-.on
-	ld de, FontGraphics
-	ld hl, vFont
-	lb bc, BANK(FontGraphics), (FontGraphicsEnd - FontGraphics) / $8
-	jp CopyVideoDataDouble ; if LCD is on, transfer during V-blank
+	farjp SPExFontResetAndLoadCommon
 
 LoadTextBoxTilePatterns::
 	ldh a, [rLCDC]

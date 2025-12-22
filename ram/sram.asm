@@ -8,6 +8,13 @@ sSpriteBuffer2:: ds SPRITEBUFFERSIZE
 
 sHallOfFame:: ds HOF_TEAM * HOF_TEAM_CAPACITY
 
+SECTION "SPEx Font Table", SRAM, ALIGN[8]
+
+; SPEx: This next bit must be $100-aligned because of assumptions made in spex_dynfont.asm
+; This table maps virtual font characters into real ones. $00 means unallocated.
+sSPExFontLoadTbl:: ds $100
+; This is the *last* VRAM tile we allocated.
+sSPExFontLoadRotator:: db
 
 SECTION "Save Data", SRAM
 
