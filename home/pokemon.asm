@@ -191,6 +191,12 @@ DisplayPartyMenu::
 	ldh [hTileAnimations], a
 	call GBPalWhiteOutWithDelay3
 	call ClearSprites
+	; SPEx RATIONALE:
+	;  This menu can be particularly nasty to the dynamic font engine.
+	;  In fact, it can use over 50% of the dynamic font buffer!
+	; For this reason, we make a point to reset the dynamic font engine every time we enter this menu.
+	; Callers should be watched to make sure they reset it when appropriate also.
+	call SPExFontReset_SaveAF
 	call PartyMenuInit
 	call DrawPartyMenu
 	jp HandlePartyMenuInput
@@ -200,6 +206,8 @@ GoBackToPartyMenu::
 	push af
 	xor a
 	ldh [hTileAnimations], a
+	; SPEx: No change here, but wanted to note *why* SPExFontReset_SaveAF wasn't called here.
+	; Simply put: This function is used when the party menu is already still 'up'.
 	call PartyMenuInit
 	call RedrawPartyMenu
 	jp HandlePartyMenuInput

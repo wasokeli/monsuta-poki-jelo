@@ -2424,6 +2424,7 @@ PartyMenuOrRockOrRun:
 .quitPartyMenu
 	call ClearSprites
 	call GBPalWhiteOut
+	call SPExFontReset_SaveAF ; SPEx: party menu can be extremely font-intensive, which can break battles.
 	call LoadHudTilePatterns
 	call LoadScreenTilesFromBuffer2
 	call RunDefaultPaletteCommand
@@ -2515,6 +2516,7 @@ PartyMenuOrRockOrRun:
 	ld [wActionResultOrTookBattleTurn], a
 	call GBPalWhiteOut
 	call ClearSprites
+	call SPExFontReset_SaveAF ; SPEx: party menu can be extremely font-intensive, which can break battles.
 	call LoadHudTilePatterns
 	call LoadScreenTilesFromBuffer1
 	call RunDefaultPaletteCommand

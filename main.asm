@@ -69,6 +69,7 @@ INCLUDE "engine/events/hidden_objects/pokemon_stuff.asm"
 
 SECTION "bank4", ROMX
 
+INCLUDE "engine/load_font.asm"
 INCLUDE "engine/spex_dynfont.asm"
 INCLUDE "gfx/font.asm"
 INCLUDE "engine/pokemon/status_screen.asm"
