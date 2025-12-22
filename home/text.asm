@@ -105,16 +105,7 @@ PlaceNextChar::
 	dict '<USER>',    PlaceMoveUsersName
 
 	; SPEx: Character remap
-	push hl
-	push bc
-	push de
-	ldh [hSPExTileTranslation], a
-	farcall SPExFontTranslate
-	ldh a, [hSPExTileTranslation]
-	pop de
-	pop bc
-	pop hl
-	; ---
+	call SPExFontTranslate_ASaveHLBCDE
 	ld [hli], a
 	call PrintLetterDelay
 
@@ -213,7 +204,10 @@ ContCharText::
 	text_end
 
 PlaceDexEnd::
-	ld [hl], '.'
+	ld a, '.'
+	; SPEx: Character remap (again)
+	call SPExFontTranslate_ASaveHLBCDE
+	ld [hl], a
 	pop hl
 	ret
 

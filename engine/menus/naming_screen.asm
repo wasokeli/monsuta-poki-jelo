@@ -371,7 +371,7 @@ ED_TileEnd:
 ; Makes a mess of A, H, L, flags.
 GetAlphabetPtr:
 	ld a, [wAlphabetCase]
-	cp a, NAMING_SCREEN_ALPHABET_COUNT
+	cp a, (Alphabets.end - Alphabets) / 2
 	jr c, .noWrapCase
 	xor a
 	ld [wAlphabetCase], a
@@ -403,15 +403,7 @@ PrintAlphabet:
 	ld a, [de]
 
 	; SPEx: Translate
-	push bc
-	push de
-	push hl
-	ldh [hSPExTileTranslation], a
-	farcall SPExFontTranslate
-	ldh a, [hSPExTileTranslation]
-	pop hl
-	pop de
-	pop bc
+	call SPExFontTranslate_ASaveHLBCDE
 
 	ld [hli], a
 	inc hl

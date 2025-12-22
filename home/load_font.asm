@@ -2,6 +2,19 @@
 LoadFontTilePatterns::
 	farjp SPExFontResetAndLoadCommon
 
+; SPEx: Saves HL, BC, DE, and changes A.
+SPExFontTranslate_ASaveHLBCDE::
+	push hl
+	push bc
+	push de
+	ldh [hSPExTileTranslation], a
+	farcall SPExFontTranslate
+	ldh a, [hSPExTileTranslation]
+	pop de
+	pop bc
+	pop hl
+	ret
+
 LoadTextBoxTilePatterns::
 	ldh a, [rLCDC]
 	bit B_LCDC_ENABLE, a

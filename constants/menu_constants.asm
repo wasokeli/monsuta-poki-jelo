@@ -90,10 +90,3 @@ DEF FIRST_PARTY_MENU_TEXT_ID EQU const_value
 	const NAME_PLAYER_SCREEN ; 0
 	const NAME_RIVAL_SCREEN  ; 1
 	const NAME_MON_SCREEN    ; 2
-
-; SPEx: Alphabet count (see data/text/alphabets.asm and engine/menus/naming_screen.asm)
-IF DEF(_DEBUG)
-DEF NAMING_SCREEN_ALPHABET_COUNT EQU 3
-ELSE
-DEF NAMING_SCREEN_ALPHABET_COUNT EQU 2
-ENDC
