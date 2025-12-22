@@ -50,8 +50,8 @@ SPExFontReset::
 .anyway:
 	inc l
 	jr nz, .loop
-	; setup the rotator to hit the common start so it wraps to where we want it
-	ld a, FONT_COMMON_TILE_START - 1
+	; This is written this way to clarify what's going on: it is incremented by 1 and then $80 is allocated.
+	ld a, $80 - 1
 	ld [sSPExFontLoadRotator], a
 	; finally, close SRAM
 	call CloseSRAM
@@ -98,8 +98,10 @@ SPExFontTranslate::
 	inc a
 	cp a, FONT_COMMON_TILE_START
 	jr c, .rotator_did_not_wrap
-	; rotator wrapped
-	ld a, $80
+	; WE ARE OUT OF TILE MEMORY!!!
+	; waso Keli says we should show an error tile in this situation.
+	ld a, '▷'
+	jr .already_loaded
 .rotator_did_not_wrap:
 	; a is now allocated tile
 	; save it to rotator, tile translation table, and result (it's going to get destroyed)
