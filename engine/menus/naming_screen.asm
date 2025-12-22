@@ -115,11 +115,15 @@ DisplayNamingScreen:
 	ld [wAnimCounter], a
 .selectReturnPoint
 	; SPEx: Each time we reprint the alphabet, we reset the font.
-	; This also meant PrintNamingText had to be moved down here.
+	; Otherwise, font overflow is pretty much inevitable.
+	; This can be pretty bad, so we cheat a little to minimize the time spent.
+	call DisableLCD
 	farcall SPExFontReset
-	call PrintNamingText
 	call PrintAlphabet
+	call PrintNamingText
+	call PrintNicknameAndUnderscores
 	call GBPalNormal
+	call EnableLCD
 .ABStartReturnPoint
 	ld a, [wNamingScreenSubmitName]
 	and a
@@ -384,6 +388,8 @@ GetAlphabetPtr:
 	ld e, a
 	ret
 
+; SPEx: THIS FUNCTION NOW RUNS WITH THE LCD OFF.
+; Turning the LCD off produces a much better experience than leaving it on in this case.
 PrintAlphabet:
 	xor a
 	ldh [hAutoBGTransferEnabled], a
@@ -421,7 +427,8 @@ PrintAlphabet:
 	call PlaceString
 	ld a, $1
 	ldh [hAutoBGTransferEnabled], a
-	jp Delay3
+	; SPEx: There used to be a Delay3 here, but font loading makes it take long enough as it is.
+	ret
 
 INCLUDE "data/text/alphabets.asm"
 
