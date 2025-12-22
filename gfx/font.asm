@@ -1,4 +1,3 @@
-PokemonLogoJapanGraphics: INCBIN "gfx/title/pokemon_logo_japan.2bpp"
 FontGraphics:: INCBIN "gfx/font/font.1bpp"
 FontGraphicsEnd::
 
@@ -13,12 +12,12 @@ BattleHudTiles2: INCBIN "gfx/battle/battle_hud_2.1bpp"
 BattleHudTiles3: INCBIN "gfx/battle/battle_hud_3.1bpp"
 BattleHudTiles3End:
 
+; SPEx: Something important to know is that these three assets are a linked set.
+; Note the lack of 'End' on most of them.
 NintendoCopyrightLogoGraphics: INCBIN "gfx/splash/copyright.2bpp"
-
 GameFreakLogoGraphics: INCBIN "gfx/title/gamefreak_inc.2bpp"
-GameFreakLogoGraphicsEnd:
-
 NineTile: INCBIN "gfx/title/nine.2bpp"
+NineTileEnd::
 
 TextBoxGraphics:: INCBIN "gfx/font/font_extra.2bpp"
 TextBoxGraphicsEnd::
