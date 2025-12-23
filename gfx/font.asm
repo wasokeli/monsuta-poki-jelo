@@ -2,7 +2,7 @@
 SPExDynFontMegasheet::
 INCBIN "gfx/font/font.1bpp", $00 * $08, $60 * $08
 TextBoxGraphics::
-INCBIN "gfx/font/font.1bpp", $60 * $08, $20 * $08
+INCBIN "gfx/font/font_extra.1bpp"
 TextBoxGraphicsEnd::
 INCBIN "gfx/font/font.1bpp", $80 * $08, (FONT_COMMON_TILE_START - $80) * $08
 FontCommonGraphics::
