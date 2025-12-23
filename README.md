@@ -1,29 +1,18 @@
-# Pokémon Yellow [![Build Status][ci-badge]][ci]
+# Pokémon Yellow: Toki Pona Sandbox
 
-This is a disassembly of Pokémon Yellow.
+This is a disassembly of Pokémon Yellow, with a set of changes to make it easy to translate into Toki Pona. It's based on [pret](https://github.com/pret/pokeyellow), followed by jan Ketesi's changes to increase the number of available Sitelen Pona words, followed by waso Keli's changes to set it up for translation.
 
-It builds the following ROMs:
-
-- Pokemon Yellow (UE) [C][!].gbc  `sha1: cc7d03262ebfaf2f06772c1a480c7d9d5f4a38e1`
-- YELLMONS.GB (debug build) `sha1: d44e96eddfbdad633cbe4e6e64915e9e198974b0`
-- Dmgapse0.h08.patch `sha1: f3346a5559d52c296b8feab0cdbbfb0e250ac161`
+This repo is *not*, itself, a translation. It's just getting the technicals out of the way so you can translate the game yourself! Click "forks" on the sidebar -> to see what other people have done.
 
 To set up the repository, see [**INSTALL.md**](INSTALL.md).
 
 
-## See also
+## Resources from pret
 
-- [**Wiki**][wiki] (includes [tutorials][tutorials])
-- [**Symbols**][symbols]
-- [**Tools**][tools]
+- [**Red wiki**](https://github.com/pret/pokeyellow/wiki), [**Yellow wiki**](https://github.com/pret/pokeyellow/wiki)
+- [**Yellow symbols**](https://github.com/wasokeli/pokeyellow/tree/symbols)
+- [**Tools**](https://github.com/pret/gb-asm-tools)
 
 You can find us on [Discord (pret, #pokered)](https://discord.gg/d5dubZ3).
 
 For other pret projects, see [pret.github.io](https://pret.github.io/).
-
-[wiki]: https://github.com/pret/pokeyellow/wiki
-[tutorials]: https://github.com/pret/pokeyellow/wiki/Tutorials
-[symbols]: https://github.com/pret/pokeyellow/tree/symbols
-[tools]: https://github.com/pret/gb-asm-tools
-[ci]: https://github.com/pret/pokeyellow/actions
-[ci-badge]: https://github.com/pret/pokeyellow/actions/workflows/main.yml/badge.svg
