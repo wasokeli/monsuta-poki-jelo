@@ -1,4 +1,4 @@
-MonsterNames::
+MonsterNames:: ; 10 sitelen limit
 	table_width NAME_LENGTH - 1
 	dname "RHYDON"
 	dname "KANGASKHAN"
@@ -83,7 +83,7 @@ MonsterNames::
 	dname "MISSINGNO."
 	dname "VULPIX"
 	dname "NINETALES"
-	dname "PIKACHU"
+	dname "PIKACHU" ; try "soweli jelo"
 	dname "RAICHU"
 	dname "MISSINGNO."
 	dname "MISSINGNO."
@@ -101,7 +101,7 @@ MonsterNames::
 	dname "OMASTAR"
 	dname "JIGGLYPUFF"
 	dname "WIGGLYTUFF"
-	dname "EEVEE"
+	dname "EEVEE" ; try "soweli pi ken mute"
 	dname "FLAREON"
 	dname "JOLTEON"
 	dname "VAPOREON"

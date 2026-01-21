@@ -1,4 +1,4 @@
-MoveNames::
+MoveNames:: ; 12 sitelen limit
 	list_start
 	li "POUND"
 	li "KARATE CHOP"
@@ -44,7 +44,7 @@ MoveNames::
 	li "PIN MISSILE"
 	li "LEER"
 	li "BITE"
-	li "GROWL"
+	li "GROWL" ; try "mu tawa monsuta ante"
 	li "ROAR"
 	li "SING"
 	li "SUPERSONIC"

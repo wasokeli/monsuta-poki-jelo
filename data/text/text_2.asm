@@ -1130,7 +1130,7 @@ _MonName1Text::
 
 _UsedText::
 	text_start
-	line "used @"
+	line "used @" ; try "li @"
 	text_end
 
 _InsteadText::
@@ -1143,7 +1143,7 @@ _MoveNameText::
 	text "@"
 
 _ExclamationPointText::
-	text "!"
+	text "!" ; try "a"
 	done
 
 _AttackMissedText::
