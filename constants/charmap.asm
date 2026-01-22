@@ -108,11 +108,15 @@ newcharmap base
 
 	charmap "?",         $d8 ; seme
 	charmap "!",         $c4 ; o
-	charmap ".",         $f2 ; bottom row .
+	charmap ".",         $47 ; SP middot
 
 	charmap ",",         $47 ; SP middot
 	charmap "♀",         $b3 ; meli
 	charmap "♂",         $b5 ; mije
+
+	sitelen_pona "te"    $42 ; SP open quote
+	sitelen_pona "to"    $43 ; SP close quote
+	
 	; SPEx: Rearranged characters so the last row is the 'permanent' set.
 	; (That is, the stuff we can't just ditch at will.)
 DEF FONT_COMMON_TILE_START EQU $f0
